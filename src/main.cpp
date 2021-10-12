@@ -40,11 +40,14 @@ int main()
     print_account_information(p3);
     std::cout << "Número de contas: " << Account::get_quantity_accounts() << std::endl;
 
-    Manager e1("Deilson Martins", std::string(std::to_string(rand())), 1000.0);
+    Manager e1("Deilson Martins", std::string(std::to_string(rand())), 1000.0, "sdfsdf");
     std::cout << "Funcionário: " << e1.get_name_and_cpf() << std::endl;
 
-    Manager e2("Vitória Cajuí", std::string(std::to_string(rand())), 1000.0);
+    Cashier e2("Vitória Cajuí", std::string(std::to_string(rand())), 1000.0, "hjkhk");
     std::cout << "Funcionário: " << e2.get_name_and_cpf() << std::endl;
+
+    e1.authentication("sdfsdf");
+    e2.authentication("hjkhk");
 
     p1.transfer(p2, 100.0);
     p1.transfer(p3, 50.0);

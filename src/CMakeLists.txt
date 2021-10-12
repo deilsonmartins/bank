@@ -4,6 +4,7 @@ project(bank CXX)
 add_subdirectory(account)
 add_subdirectory(employee)
 add_subdirectory(person)
+add_subdirectory(auth)
 
 add_executable(bank)
 
@@ -19,6 +20,7 @@ target_link_libraries(
         account
         employee
         person
+        auth
 )
 
 target_compile_features(
