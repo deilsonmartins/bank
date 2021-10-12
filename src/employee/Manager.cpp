@@ -1,11 +1,10 @@
 #include "Manager.hpp"
 #include <iostream>
 
-Manager::Manager(std::string const &name, Cpf const &cpf, float salary, std::string password) : 
-Employee(name, cpf, salary), 
-Auth(password){
+Manager::Manager(std::string const &name, Cpf const &cpf, float salary, WeekDay payment_day, std::string password) : Employee(name, cpf, payment_day, salary),
+                                                                                                                     Auth(password){
 
-                                                                                                };
+                                                                                                                     };
 
 float Manager::get_bonus() const
 {

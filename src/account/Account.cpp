@@ -18,32 +18,39 @@ Account::~Account()
     quantityAccounts--;
 }
 
-void Account::deposit(float value)
+std::pair<Account::ResultTransaction, float> Account::deposit(float value)
 {
     if (value < 0)
     {
         std::cout << "Impossível depositar valor negativo." << std::endl;
-        return;
+        return std::make_pair(ResultTransaction::Failed, balance);
     }
     balance += value;
+    return std::make_pair(ResultTransaction::Sucess, balance);
 }
 
-void Account::withdraw(float value)
+std::pair<Account::ResultTransaction, float> Account::withdraw(float value)
 {
     if (value < 0)
     {
         std::cout << "Impossível sacar valor negativo." << std::endl;
-        return;
+        return std::make_pair(ResultTransaction::Failed, balance);
     }
 
     float value_withdraw = value + get_tariff();
     if (value_withdraw > balance)
     {
         std::cout << "Valor do saque maior que o saldo disponível." << std::endl;
-        return;
+        return std::make_pair(ResultTransaction::Failed, balance);
     }
 
     balance -= value_withdraw;
+    return std::make_pair(ResultTransaction::Sucess, balance);
+}
+
+Holder Account::get_holder() const
+{
+    return holder;
 }
 
 float Account::get_balance() const
@@ -56,7 +63,28 @@ std::string Account::get_number() const
     return number;
 }
 
-Holder Account::get_holder() const
+void Account::operator+=(float value)
 {
-    return holder;
+    auto status = deposit(value).first;
+    if (status == ResultTransaction::Sucess)
+    {
+        std::cout << "Depósito realizado com sucesso." << std::endl;
+    }
+    if (status == ResultTransaction::Failed)
+    {
+        std::cout << "Falha ao tentar realizar o depósito. Contate o gerente para mais informações." << std::endl;
+    }
+}
+
+void Account::operator-=(float value)
+{
+    auto status = withdraw(value).first;
+    if (status == ResultTransaction::Sucess)
+    {
+        std::cout << "Saque realizado com sucesso." << std::endl;
+    }
+    if (status == ResultTransaction::Failed)
+    {
+        std::cout << "Falha ao tentar realizar o saque. Contate o gerente para mais informações." << std::endl;
+    }
 }

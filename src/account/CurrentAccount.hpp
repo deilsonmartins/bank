@@ -12,4 +12,5 @@ public:
     char get_account_type() const;
     float get_tariff() const override;
     void transfer(Account &Destiny, float value);
+    void operator>>(Account &Destiny);
 };

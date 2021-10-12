@@ -1,8 +1,8 @@
 #include "Employee.hpp"
 
-Employee::Employee(std::string const &name, Cpf const &cpf, float salary) : Person(name, cpf), salary(salary){
+Employee::Employee(std::string const &name, Cpf const &cpf, WeekDay payment_day, float salary) : Person(name, cpf), payment_day(payment_day), salary(salary){
 
-                                                                                               };
+                                                                                                                    };
 
 std::string Employee::get_name_and_cpf() const
 {

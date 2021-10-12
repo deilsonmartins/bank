@@ -1,7 +1,7 @@
 #include "Cashier.hpp"
 #include <iostream>
 
-Cashier::Cashier(std::string const &name, Cpf const &cpf, float salary, std::string password) : Employee(name, cpf, salary), Auth(password){};
+Cashier::Cashier(std::string const &name, Cpf const &cpf, float salary, WeekDay payment_day, std::string password) : Employee(name, cpf, payment_day, salary), Auth(password){};
 
 float Cashier::get_bonus() const
 {

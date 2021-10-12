@@ -9,6 +9,7 @@ target_sources(
         Employee.hpp
         Manager.hpp
         Cashier.hpp
+        WeekDay.hpp
     PRIVATE
         Employee.cpp
         Manager.cpp
