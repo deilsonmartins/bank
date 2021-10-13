@@ -9,7 +9,6 @@ target_sources(
         Person.hpp
         Cpf.hpp
     PRIVATE
-        Person.cpp
         Cpf.cpp
 )
 

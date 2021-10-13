@@ -1,15 +1,20 @@
 #pragma once
 #include "Cpf.hpp"
 
+template <typename T>
 class Person
 {
 protected:
-    Cpf cpf;
+    T document;
     std::string name;
 
 public:
-    Person(std::string name, Cpf cpf);
+    Person(std::string name, T document) : name(name), document(document){};
 
-    std::string get_name() const;
-    std::string get_cpf() const;
+    std::string get_name() const{
+        return name;
+    }
+    T get_document(){
+        return document;
+    } 
 };

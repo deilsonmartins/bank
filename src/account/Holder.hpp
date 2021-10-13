@@ -3,7 +3,7 @@
 #include "../person/Cpf.hpp"
 #include "../person/Person.hpp"
 
-class Holder : public Person
+class Holder : public Person<Cpf>
 {
 
 public:

@@ -8,11 +8,12 @@
 #include <ctime>
 
 std::ostream& operator<<(std::ostream& cout, const Account& account){
+    Cpf cpf = account.get_holder().get_document();
     std::cout << std::endl;
     std::cout << "Informações da conta: " << std::endl;
     std::cout << "Número: " << account.get_number() << std::endl;
     std::cout << "Name: " << account.holder.get_name() << std::endl;
-    std::cout << "CPF: " << account.holder.get_cpf() << std::endl;
+    std::cout << "Cpf: " << cpf.get_number() << std::endl;
     std::cout << "Saldo disponível: " << account.get_balance() << std::endl;
     std::cout << std::endl;
 

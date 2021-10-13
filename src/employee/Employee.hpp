@@ -5,7 +5,7 @@
 #include "../person/Person.hpp"
 #include "WeekDay.hpp"
 
-class Employee : public Person
+class Employee : public Person<Cpf>
 {
     WeekDay payment_day;
     float salary;

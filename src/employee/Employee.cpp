@@ -6,7 +6,7 @@ Employee::Employee(std::string const &name, Cpf const &cpf, WeekDay payment_day,
 
 std::string Employee::get_name_and_cpf() const
 {
-    return name + " | " + cpf.get_number();
+    return name + " | " + document.get_number();
 };
 
 float Employee::get_salary() const
